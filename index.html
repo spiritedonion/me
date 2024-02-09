@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --background-color: #EFEFEF;
+            --text-color: #333;
+            --button-background-color: #005D9E;
+            --button-hover-color: #FF6F61;
+            --button-text-color: #fff;
+            transition: all 0.5s ease;
+          }
+
+        /* Add your CSS here */
+        .checkbox-wrapper-41 {
+            --size: 50px;
+          }
+          
+          .checkbox-wrapper-41 input[type="checkbox"] {
+            -webkit-appearance: none;
+            width: var(--size);
+            height: calc(var(--size) / 2);
+            background-color: #fff;
+            border: 3px solid #222;
+            border-radius: 30px 100px 100px 100px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            outline: none;  
+            cursor: pointer;
+            position: relative;
+            transition: all 0.5s;
+          }
+          
+          .checkbox-wrapper-41 input[type="checkbox"]::before {
+            content: "";
+            position: absolute;
+            width: calc(var(--size) / 2);
+            height: calc(var(--size) / 2);
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%) scale(0.7);
+            border: 3px solid #222;
+            border-radius: 30px 100px 100px 100px;
+            background-color: #fde881;
+            box-sizing: border-box;
+            transition: all 0.5s;
+          }
+          
+          .checkbox-wrapper-41 input[type="checkbox"]:checked {
+            background-color: #3a57cd;
+            border-radius: 100px 100px 30px 100px;
+          }
+          
+          .checkbox-wrapper-41 input[type="checkbox"]:checked::before {
+            left: 50%;
+            background-color: #fff;
+            border-radius: 100px 100px 30px 100px;
+          }
+        
+        html {
+            background: var(--background-color);
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-color);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #005D9E;
+        }
+
+        .css-button-arrow--sky {
+            margin: 30px 20px ;
+            min-width: 130px;
+            height: 40px;
+            color: var(--button-text-color);
+            padding: 5px 10px;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+            outline: none;
+            overflow: hidden;
+            border-radius: 20px;
+            border: none;
+            background-color: var(--button-background-color);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+
+        .css-button-arrow--sky:hover {
+            background-color: var(--button-hover-color);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+
+        .css-button-arrow--sky:after {
+            content: "\00BB";
+            position: absolute;
+            opacity: 0;
+            font-size: 20px;
+            line-height: 40px;
+            top: 0;
+            right: -20px;
+            transition: 0.4s;
+            transform: rotate(90deg);
+        }
+
+        .wavy {
+            font-family: 'Playfair Display', serif;
+            color: #005D9E;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .wavy span {
+            position: relative;
+            display: inline-block;
+            color: #009e61;
+            font-size: 2em;
+            text-transform: uppercase;
+            animation: animate 3s ease-in-out infinite;
+            animation-delay: calc(0.2s * var(--i));
+        }
+
+        @keyframes animate {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(10px); /* Adjust this value to reduce/increase movement */
+            }
+        }
+
+        .button-container {
+            position: relative;
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        .button-container object {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+        }
+        
+        .css-button-arrow--sky .arrow {
+            display: inline-block;
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        @font-face {
+            font-family: 'Namecat';
+            src: url('./fonts/Namecat.ttf') format('truetype');
+        }
+        .wavy {
+            font-family: 'Namecat';
+        }
+        .button-pdf-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    </style>
+</head>
+<body>
+    
+    <div class="checkbox-wrapper-41">
+        <input type="checkbox" id="toggle-theme">
+      </div>
+
+    <h1 class="wavy">
+        <span style="--i:1">P</span>
+        <span style="--i:2">R</span>
+        <span style="--i:3">O</span>
+        <span style="--i:4">J</span>
+        <span style="--i:5">E</span>
+        <span style="--i:6">C</span>
+        <span style="--i:7">T</span>
+        <span style="--i:8">S</span>
+    </h1>
+
+    <div style="text-align: center;">
+        <div class="button-container">
+            <button class="css-button-arrow--sky" onclick="showmodal(0)">
+                Windows Server
+                <span class="arrow">&#9654;</span>
+            </button>
+            <object data="./PDF/Projects/Gauranga-Windows Server 2016.pdf" class="animate__animated" width="700" height="700" type='application/pdf'></object>
+        </div>
+        <div class="button-container">
+            <button class="css-button-arrow--sky" onclick="showmodal(1)">
+                Fortigate
+                <span class="arrow">&#9654;</span>
+            </button>
+            <object data="./PDF/Projects/Fortigate.pdf" class="animate__animated" width="700" height="700" type='application/pdf'></object>
+        </div>
+        <div class="button-container">
+            <button class="css-button-arrow--sky" onclick="showmodal(2)">
+                AwS
+                <span class="arrow">&#9654;</span>
+            </button>
+            <object data="./PDF/Projects/AwS - Gauranga Gautam.pdf" class="animate__animated" width="700" height="700" type='application/pdf'></object>
+        </div>
+        <div class="button-container">
+            <button class="css-button-arrow--sky" onclick="showmodal(3)">
+                Normalized database
+                <span class="arrow">&#9654;</span>
+            </button>
+            <object data="./PDF/Projects/Normalized database.pdf" class="animate__animated" width="700" height="700" type='application/pdf'></object>
+        </div>
+    <div class="button-container">
+        <button class="css-button-arrow--sky" onclick="showmodal(4)">
+            Pet Feeder
+            <span class="arrow">&#9654;</span>
+        </button>
+        <object data="./PDF/Projects/IoT Automatic Pet Feeder.pdf" class="animate__animated" width="700" height="700" type='application/pdf'></object>
+    </div>
+</div>
+    <script>
+        var currentModal = null;
+        function showmodal(n){
+            var buttonContainers = document.querySelectorAll('.button-container');
+            for (var i = 0; i < buttonContainers.length; i++) {
+                var objectElement = buttonContainers[i].querySelector('object');
+                var arrowElement = buttonContainers[i].querySelector('.arrow');
+                if (i != n) {
+                    objectElement.style.display = 'none';
+                    objectElement.classList.add('animate__fadeOut');
+                    objectElement.classList.remove('animate__fadeIn');
+                    arrowElement.style.transform = 'rotate(0deg)';
+                }
+            }
+            var objectElement = buttonContainers[n].querySelector('object');
+            var arrowElement = buttonContainers[n].querySelector('.arrow');
+            if(currentModal === n){
+                objectElement.style.display = 'none';
+                objectElement.classList.add('animate__fadeOut');
+                objectElement.classList.remove('animate__fadeIn');
+                arrowElement.style.transform = 'rotate(0deg)';
+                currentModal = null;
+            } else {
+                objectElement.style.display = 'block';
+                objectElement.classList.add('animate__fadeIn');
+                objectElement.classList.remove('animate__fadeOut');
+                arrowElement.style.transform = 'rotate(90deg)';
+                currentModal = n;
+            }
+        }
+
+        document.getElementById('toggle-theme').addEventListener('change', function() {
+            var root = document.documentElement;
+            var darkMode = this.checked;
+            root.style.setProperty('--background-color', darkMode ? '#333' : '#EFEFEF');
+            root.style.setProperty('--text-color', darkMode ? '#EFEFEF' : '#333');
+            root.style.setProperty('--button-background-color', darkMode ? '#FF6F61' : '#005D9E');
+            root.style.setProperty('--button-hover-color', darkMode ? '#005D9E' : '#FF6F61');
+            root.style.setProperty('--button-text-color', darkMode ? '#333' : '#fff');
+          });
+    </script>
+</body>
+</html>

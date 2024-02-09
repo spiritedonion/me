@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Single+Day&display=swap">
+      
+      
+    <style>
+        html{
+            background-image: url(./wallpaper.png);
+    /* background-size: ; */
+    /* background-position: 100px 100px; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+
+    height: 100%;
+        }
+        object{
+            display: none;
+        }
+        
+        .css-button-arrow--sky {
+            margin: 30px 20px ;
+        min-width: 130px;
+        height: 40px;
+        color: #fff;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        overflow: hidden;
+        border-radius: 5px;
+        border: none;
+        background-color: #3a86ff
+      }
+      .css-button-arrow--sky:hover {
+        border-radius: 5px;
+        padding-right: 24px;
+        padding-left:8px;
+      }
+      .css-button-arrow--sky:hover:after {
+        opacity: 1;
+        right: 10px;
+      }
+      .css-button-arrow--sky:after {
+        content: "\00BB";
+        position: absolute;
+        opacity: 0;
+        font-size: 20px;
+        line-height: 40px;
+        top: 0;
+        right: -20px;
+        transition: 0.4s;
+        transform: rotate(90deg);
+      }
+      .wavy {
+        font-family: 'Single Day', cursive;
+      }
+          
+      .wavy { 
+        position: relative; 
+    } 
+
+    .wavy span { 
+        position: relative; 
+        display: inline-block; 
+        color: #fff; 
+        font-size: 2em; 
+        text-transform: uppercase; 
+        animation: animate 3s ease-in-out infinite; 
+        animation-delay: calc(0.2s * var(--i)); 
+    } 
+
+    @keyframes animate { 
+        0% { 
+            transform: translateY(0); 
+        } 
+        50% { 
+            transform: translateY(1em); 
+        } 
+        100% { 
+            transform: translateY(0); 
+        } 
+    }
+    </style>
+    
+</head>
+<body>
+    
+    <div class="wavy"> 
+        <span style="--i:1">P</span> 
+        <span style="--i:2">R</span> 
+        <span style="--i:3">O</span> 
+        <span style="--i:4">J</span> 
+        <span style="--i:5">E</span> 
+        <span style="--i:6">C</span> 
+        <span style="--i:7">T</span> 
+        <span style="--i:8">S</span> 
+        <!-- <span style="--i:9">R</span> 
+        <span style="--i:10"> </span> 
+        <span style="--i:11">G</span> 
+        <span style="--i:12">E</span> 
+        <span style="--i:13">E</span> 
+        <span style="--i:14">K</span> 
+        <span style="--i:15">S</span> 
+        <span style="--i:16">.</span> 
+        <span style="--i:17">.</span> 
+        <span style="--i:18">.</span> 
+        <span style="--i:19">.</span> 
+        <span style="--i:20">.</span>  -->
+    </div> 
+   
+    <button class="css-button-arrow--sky" onclick="showmodal(0)">Windows Server</button>
+    <button class="css-button-arrow--sky" onclick="showmodal(1)">Fortigate</button>
+    <button class="css-button-arrow--sky" onclick="showmodal(2)">AwS</button>
+    <button class="css-button-arrow--sky" onclick="showmodal(3)">Normalized database</button>
+    <object data="./Gauranga-Windows Server 2016.pdf" class="animate__animated" width="700" height="700" type='application/pdf'></object>
+    <object data="./Fortigate.pdf" class="animate__animated" width="700" height="700" type='application/pdf'></object>
+    <object data="./AwS - Gauranga Gautam.pdf" class="animate__animated" width="700" height="700" type='application/pdf'></object>
+    <object data="./Normalized database.pdf" class="animate__animated" width="700" height="700" type='application/pdf'></object>
+
+    <script>
+        var currentModal = null;
+        function showmodal(n){
+            var objectElements = document.querySelectorAll('object');
+            for (var i = 0; i < objectElements.length; i++) {
+                if (i != n) {
+                    objectElements[i].style.display = 'none';
+                    objectElements[i].classList.add('animate__fadeOut');
+                    objectElements[i].classList.remove('animate__fadeIn');
+                }
+            }
+            var objectElement = objectElements[n];
+            if(currentModal === n){
+                objectElement.style.display = 'none';
+                objectElement.classList.add('animate__fadeOut');
+                objectElement.classList.remove('animate__fadeIn');
+                currentModal = null;
+            } else {
+                objectElement.style.display = 'block';
+                objectElement.classList.add('animate__fadeIn');
+                objectElement.classList.remove('animate__fadeOut');
+                currentModal = n;
+            }
+        }
+    </script>
+</body>
+</html>
