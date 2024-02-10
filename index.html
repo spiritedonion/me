@@ -166,10 +166,24 @@
             font-family: 'Namecat';
         }
         .button-pdf-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+        .cursor {
+            border-right: .15em solid black;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .custom-font {
+            font-family: 'Roboto', sans-serif;
+            font-size: 24px;
+        }
     </style>
 </head>
 <body>
@@ -190,6 +204,7 @@
     </h1>
 
     <div style="text-align: center;">
+        <p id="type-effect">|</p>
         <div class="button-container">
             <button class="css-button-arrow--sky" onclick="showmodal(0)">
                 Windows Server
@@ -256,7 +271,37 @@
                 currentModal = n;
             }
         }
+        var text = 'It might take 5-7 seconds to load the PDFs. Please be patient.';
+        var typeEffectElement = document.getElementById('type-effect');
+        typeEffectElement.innerHTML = '<span class="custom-font">' + text + '</span>';
+        var index = 0;
+        var reverse = false;
 
+        function typeEffect() {
+            var typeEffectElement = document.getElementById('type-effect');
+            if (!reverse) {
+                typeEffectElement.innerHTML = text.slice(0, index) + '<span class="cursor"></span>';
+                index++;
+                if (index > text.length) {
+                    reverse = true;
+                    setTimeout(typeEffect, 2000); // Wait for 2 seconds before starting to delete
+                } else {
+                    setTimeout(typeEffect, 100); // Time between each character when typing
+                }
+            } else {
+                index--;
+                typeEffectElement.innerHTML = text.slice(0, index) + '<span class="cursor"></span>';
+                if (index <= 0) {
+                    reverse = false;
+                    setTimeout(typeEffect, 2000); // Wait for 2 seconds before starting to type again
+                } else {
+                    setTimeout(typeEffect, 100); // Time between each character when deleting
+                }
+            }
+        }
+
+        typeEffect(); // Start the typing effect
+   
         document.getElementById('toggle-theme').addEventListener('change', function() {
             var root = document.documentElement;
             var darkMode = this.checked;
